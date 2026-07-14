@@ -1,0 +1,1 @@
+/run/media/kanhaji/New\ Volume/randoms/screen-board/tablet_input/target/debug/examples/monitor: /run/media/kanhaji/New\ Volume/randoms/screen-board/tablet_input/examples/monitor.rs /run/media/kanhaji/New\ Volume/randoms/screen-board/tablet_input/src/lib.rs

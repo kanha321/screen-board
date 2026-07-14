@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaomon WH851 Web Visualizer</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-area">
+                <h1>GAOMON <span class="thin">WH851</span></h1>
+                <div class="badge">Visualizer App</div>
+            </div>
+            <div class="status-panel">
+                <span class="status-dot disconnected" id="statusDot"></span>
+                <span class="status-text" id="statusText">Connecting to Tablet...</span>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Left Info Panel -->
+            <section class="panel-left">
+                <div class="card glass-card shadow-lg">
+                    <h2>Stylus Telemetry</h2>
+                    <div class="telemetry-grid">
+                        <div class="telemetry-item">
+                            <span class="label">X Position</span>
+                            <span class="value" id="valX">0</span>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="label">Y Position</span>
+                            <span class="value" id="valY">0</span>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="label">Pressure</span>
+                            <span class="value" id="valPressure">0</span>
+                        </div>
+                        <div class="telemetry-item">
+                            <span class="label">Tilt X / Y</span>
+                            <span class="value" id="valTilt">0° / 0°</span>
+                        </div>
+                    </div>
+
+                    <!-- Pressure Bar -->
+                    <div class="pressure-container">
+                        <span class="label">Pressure Intensity</span>
+                        <div class="pressure-bar-outer">
+                            <div class="pressure-bar-inner" id="pressureBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Last Clicked Panel -->
+                <div class="card glass-card shadow-lg mt-4">
+                    <h2>Event Logger</h2>
+                    <div class="logger-container">
+                        <div class="active-combo-box">
+                            <span class="label">Active Input Combination</span>
+                            <div class="combo-display" id="comboDisplay">None</div>
+                        </div>
+                        <div class="log-history">
+                            <span class="label">Recent Events</span>
+                            <ul class="log-list" id="logList">
+                                <li class="sys-msg">Visualizer initialized. Ready for events.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary mt-3" id="clearCanvasBtn">Clear Draw Board</button>
+                </div>
+            </section>
+
+            <!-- Right Visualizer Area -->
+            <section class="panel-right">
+                <div class="visualizer-container glass-card shadow-lg">
+                    <!-- Virtual Tablet Body -->
+                    <div class="virtual-tablet" id="virtualTablet">
+                        <!-- Bezel / Controls Area -->
+                        <div class="tablet-bezel">
+                            <!-- Express Buttons 1-4 -->
+                            <div class="button-column">
+                                <div class="express-btn" id="btn_btn1" data-btn="1">K1</div>
+                                <div class="express-btn" id="btn_btn2" data-btn="2">K2</div>
+                                <div class="express-btn" id="btn_btn3" data-btn="3">K3</div>
+                                <div class="express-btn" id="btn_btn4" data-btn="4">K4</div>
+                            </div>
+                            
+                            <!-- Mechanical Dial -->
+                            <div class="dial-container">
+                                <div class="dial-wheel" id="dialWheel">
+                                    <div class="dial-center-btn" id="btn_dialCenter"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Express Buttons 5-8 -->
+                            <div class="button-column">
+                                <div class="express-btn" id="btn_btn5" data-btn="5">K5</div>
+                                <div class="express-btn" id="btn_btn6" data-btn="6">K6</div>
+                                <div class="express-btn" id="btn_btn7" data-btn="7">K7</div>
+                                <div class="express-btn" id="btn_btn8" data-btn="8">K8</div>
+                            </div>
+                        </div>
+
+                        <!-- Active Drawing Area / Digitizer Screen -->
+                        <div class="digitizer-area" id="digitizerArea">
+                            <canvas class="draw-canvas" id="drawCanvas"></canvas>
+                            
+                            <!-- Hover Stylus Pointer -->
+                            <div class="virtual-stylus" id="virtualStylus">
+                                <div class="stylus-body">
+                                    <div class="stylus-btn stylus-btn-1" id="btn_stylus1"></div>
+                                    <div class="stylus-btn stylus-btn-2" id="btn_stylus2"></div>
+                                </div>
+                                <div class="stylus-tip-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

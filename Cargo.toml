@@ -1,0 +1,9 @@
+[package]
+name = "screen-board"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = { version = "0.28.1", default-features = true }
+egui = "0.28.1"
+tablet_input = { path = "./tablet_input" }
